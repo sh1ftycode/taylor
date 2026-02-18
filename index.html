@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>tay — links</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --pink: #f472b6;
+      --pink-light: #fbcfe8;
+      --purple: #a855f7;
+      --purple-dark: #7c3aed;
+      --bg: #0f0a1a;
+      --card: rgba(255,255,255,0.04);
+      --glow-pink: rgba(244, 114, 182, 0.35);
+      --glow-purple: rgba(168, 85, 247, 0.35);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 60% at 20% 0%, rgba(168,85,247,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 100%, rgba(244,114,182,0.18) 0%, transparent 60%);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px 80px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ── Profile ── */
+    .pfp-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+      animation: fadeDown 0.7s ease both;
+    }
+
+    .pfp-ring {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      box-shadow: 0 0 28px var(--glow-pink), 0 0 50px var(--glow-purple);
+    }
+
+    .pfp-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #1e0f2e;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Replace this img src with Tay's actual pfp URL */
+    .pfp-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .pfp-placeholder {
+      font-size: 42px;
+    }
+
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      text-align: center;
+      animation: fadeDown 0.7s 0.1s ease both;
+    }
+
+    .name span {
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bio {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.88rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 6px;
+      margin-bottom: 36px;
+      text-align: center;
+      animation: fadeDown 0.7s 0.18s ease both;
+    }
+
+    /* ── Buttons ── */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 16px 22px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      animation: fadeUp 0.6s both;
+    }
+
+    .link-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .link-btn:hover::before { opacity: 1; }
+
+    /* Twitch */
+    .btn-twitch {
+      animation-delay: 0.25s;
+    }
+    .btn-twitch::before {
+      background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(124,58,237,0.1));
+    }
+    .btn-twitch:hover {
+      border-color: var(--purple);
+      box-shadow: 0 4px 24px var(--glow-purple);
+    }
+
+    /* TikTok */
+    .btn-tiktok {
+      animation-delay: 0.35s;
+    }
+    .btn-tiktok::before {
+      background: linear-gradient(135deg, rgba(244,114,182,0.15), rgba(168,85,247,0.1));
+    }
+    .btn-tiktok:hover {
+      border-color: var(--pink);
+      box-shadow: 0 4px 24px var(--glow-pink);
+    }
+
+    /* Discord */
+    .btn-discord {
+      animation-delay: 0.45s;
+    }
+    .btn-discord::before {
+      background: linear-gradient(135deg, rgba(88,101,242,0.2), rgba(168,85,247,0.1));
+    }
+    .btn-discord:hover {
+      border-color: #818cf8;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.4);
+    }
+
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .btn-twitch .btn-icon { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+    .btn-tiktok .btn-icon { background: linear-gradient(135deg, #f472b6, #a855f7); }
+    .btn-discord .btn-icon { background: linear-gradient(135deg, #5865f2, #7c3aed); }
+
+    .btn-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+
+    .btn-label {
+      flex: 1;
+    }
+
+    .btn-label .platform {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .btn-arrow {
+      color: rgba(255,255,255,0.25);
+      font-size: 1.1rem;
+      transition: transform 0.18s ease, color 0.18s ease;
+    }
+
+    .link-btn:hover .btn-arrow {
+      transform: translateX(3px);
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 4px 0;
+      animation: fadeUp 0.6s 0.4s both;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+    }
+    .divider-text {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* floating orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+      opacity: 0.12;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+    .orb1 { width: 300px; height: 300px; background: var(--purple); top: -80px; left: -80px; animation-duration: 14s; }
+    .orb2 { width: 250px; height: 250px; background: var(--pink); bottom: -60px; right: -60px; animation-duration: 10s; animation-delay: -4s; }
+
+    @keyframes drift {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(30px, 20px) scale(1.08); }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+
+  <div class="container">
+
+    <!-- Profile picture — replace src with Tay's actual image URL -->
+    <div class="pfp-wrapper">
+      <div class="pfp-ring">
+        <div class="pfp-inner">
+          <!-- OPTION A: paste a direct image URL below -->
+          <!-- <img src="YOUR_PFP_URL_HERE" alt="tay" /> -->
+
+          <!-- OPTION B: placeholder shown until you add the image -->
+          <span class="pfp-placeholder">🌸</span>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="name"><span>tay</span></h1>
+    <p class="bio">streamer &nbsp;·&nbsp; content creator</p>
+
+    <div class="links">
+
+      <!-- Twitch -->
+      <a class="link-btn btn-twitch" href="https://twitch.tv/YOURCHANNEL" target="_blank" rel="noopener">
+        <div class="btn-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/>
+          </svg>
+        </div>
+        <div class="btn-label">
+          <span class="platform">Twitch</span>
+          Watch me live
+        </div>
+        <span class="btn-arrow">›</span>
+      </a>
+
+      <!-- TikTok -->
+      <a class="link-btn btn-tiktok" href="https://tiktok.com/@YOURUSERNAME" target="_blank" rel="noopener">
+        <div class="btn-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.05a8.16 8.16 0 004.77 1.52V7.12a4.85 4.85 0 01-1-.43z"/>
+          </svg>
+        </div>
+        <div class="btn-label">
+          <span class="platform">TikTok</span>
+          Follow on TikTok
+        </div>
+        <span class="btn-arrow">›</span>
+      </a>
+
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-text">community</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Discord -->
+      <a class="link-btn btn-discord" href="https://discord.gg/YOURINVITE" target="_blank" rel="noopener">
+        <div class="btn-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+        </div>
+        <div class="btn-label">
+          <span class="platform">Discord</span>
+          Join the server
+        </div>
+        <span class="btn-arrow">›</span>
+      </a>
+
+    </div>
+  </div>
+</body>
+</html>
